@@ -1,0 +1,123 @@
+INDTRY_KEY,SCTR_CD,SCTR_DESC,INDTRY_CD,INDTRY_DESC,CURR_ROW_FLG,ROW_STRT_DTTM,ROW_STOP_DTTM,ETL_LOAD_CYC_KEY,SRC_SYS_ID
+732,80,Energy,BA,Energy Equipment & Services,Y,2020-05-08 07:41:46,,432591,0
+733,80,Energy,BB,"Oil, Gas & Consumable Fuels",Y,2020-05-08 07:41:46,,432591,0
+734,81,Materials,BC,Chemicals,Y,2020-05-08 07:41:46,,432591,0
+735,81,Materials,BD,Construction Materials,Y,2020-05-08 07:41:46,,432591,0
+736,81,Materials,BE,Containers & Packaging,Y,2020-05-08 07:41:46,,432591,0
+737,81,Materials,BF,Metals & Mining,Y,2020-05-08 07:41:46,,432591,0
+738,81,Materials,BG,Paper & Forest Products,Y,2020-05-08 07:41:46,,432591,0
+739,82,Industrials,BH,Aerospace & Defense,Y,2020-05-08 07:41:46,,432591,0
+740,82,Industrials,BI,Building Products,Y,2020-05-08 07:41:46,,432591,0
+741,82,Industrials,BJ,Construction & Engineering,Y,2020-05-08 07:41:46,,432591,0
+742,82,Industrials,BK,Electrical Equipment,Y,2020-05-08 07:41:46,,432591,0
+743,82,Industrials,BL,Industrial Conglomerates,Y,2020-05-08 07:41:46,,432591,0
+744,82,Industrials,BM,Machinery,Y,2020-05-08 07:41:46,,432591,0
+745,82,Industrials,BN,Trading Companies & Distributors,Y,2020-05-08 07:41:46,,432591,0
+746,82,Industrials,BO,Commercial Services & Supplies,Y,2020-05-08 07:41:46,,432591,0
+747,82,Industrials,BP,Air Freight & Logistics,Y,2020-05-08 07:41:46,,432591,0
+748,82,Industrials,BQ,Airlines,Y,2020-05-08 07:41:46,,432591,0
+749,82,Industrials,BR,Marine,Y,2020-05-08 07:41:46,,432591,0
+750,82,Industrials,BS,Road & Rail,Y,2020-05-08 07:41:46,,432591,0
+751,82,Industrials,BT,Transportation Infrastructure,Y,2020-05-08 07:41:46,,432591,0
+752,83,Consumer Discretionary,BU,Auto Components,Y,2020-05-08 07:41:46,,432591,0
+753,83,Consumer Discretionary,BV,Automobiles,Y,2020-05-08 07:41:46,,432591,0
+754,83,Consumer Discretionary,BW,Household Durables,Y,2020-05-08 07:41:46,,432591,0
+755,83,Consumer Discretionary,BX,Leisure Equipment & Products,Y,2020-05-08 07:41:46,,432591,0
+756,83,Consumer Discretionary,BY,"Textiles, Apparel & Luxury Goods",Y,2020-05-08 07:41:46,,432591,0
+757,83,Consumer Discretionary,BZ,Hotels Restaurants & Leisure,Y,2020-05-08 07:41:46,,432591,0
+758,83,Consumer Discretionary,JA,Media,Y,2020-05-08 07:41:46,,432591,0
+759,83,Consumer Discretionary,JB,Distributors,Y,2020-05-08 07:41:46,,432591,0
+760,83,Consumer Discretionary,JC,Internet & Catalog Retail,Y,2020-05-08 07:41:46,,432591,0
+761,83,Consumer Discretionary,JD,Multiline Retail,Y,2020-05-08 07:41:46,,432591,0
+762,83,Consumer Discretionary,JE,Specialty Retail,Y,2020-05-08 07:41:46,,432591,0
+763,84,Consumer Staples,JF,Food & Drug Retailing,Y,2020-05-08 07:41:46,,432591,0
+764,84,Consumer Staples,JG,Beverages,Y,2020-05-08 07:41:46,,432591,0
+765,84,Consumer Staples,JH,Food Products,Y,2020-05-08 07:41:46,,432591,0
+766,84,Consumer Staples,JI,Tobacco,Y,2020-05-08 07:41:46,,432591,0
+767,84,Consumer Staples,JJ,Household Products,Y,2020-05-08 07:41:46,,432591,0
+768,84,Consumer Staples,JK,Personal Products,Y,2020-05-08 07:41:46,,432591,0
+769,85,Health Care,JL,Health Care Equipment & Supplies,Y,2020-05-08 07:41:46,,432591,0
+770,85,Health Care,JM,Health Care Providers & Services,Y,2020-05-08 07:41:46,,432591,0
+771,85,Health Care,JN,Biotechnology,Y,2020-05-08 07:41:46,,432591,0
+772,85,Health Care,JO,Pharmaceuticals,Y,2020-05-08 07:41:46,,432591,0
+773,86,Financials,JP,Commercial Banks,Y,2020-05-08 07:41:46,,432591,0
+774,86,Financials,JQ,Diversified Financials,Y,2020-05-08 07:41:46,,432591,0
+775,86,Financials,JR,Insurance,Y,2020-05-08 07:41:46,,432591,0
+776,86,Financials,JS,Real Estate,Y,2020-05-08 07:41:46,,432591,0
+777,87,Information Technology,JT,Internet Software & Services,Y,2020-05-08 07:41:46,,432591,0
+778,87,Information Technology,JU,IT Services,Y,2020-05-08 07:41:46,,432591,0
+779,87,Information Technology,JV,Software,Y,2020-05-08 07:41:46,,432591,0
+780,87,Information Technology,JW,Communications Equipment,Y,2020-05-08 07:41:46,,432591,0
+781,87,Information Technology,JX,Computers & Peripherals,Y,2020-05-08 07:41:46,,432591,0
+782,87,Information Technology,JY,"Electronic Equipment, Instruments & Components",Y,2020-05-08 07:41:46,,432591,0
+783,87,Information Technology,JZ,Office Electronics,Y,2020-05-08 07:41:46,,432591,0
+784,87,Information Technology,J0,Semiconductors & Semiconductor Equipment,Y,2020-05-08 07:41:46,,432591,0
+785,88,Telecommunication Services,J1,Diversified Telecommunication Services,Y,2020-05-08 07:41:46,,432591,0
+786,88,Telecommunication Services,J2,Wireless Telecommunication Services,Y,2020-05-08 07:41:46,,432591,0
+787,89,Utilities,J3,Electric Utilities,Y,2020-05-08 07:41:46,,432591,0
+788,89,Utilities,J4,Gas Utilities,Y,2020-05-08 07:41:46,,432591,0
+789,89,Utilities,J5,Multi-Utilities,Y,2020-05-08 07:41:46,,432591,0
+790,89,Utilities,J6,Water Utilities,Y,2020-05-08 07:41:46,,432591,0
+791,US,Treasury,TB,Treasury Bond,Y,2020-05-08 07:41:46,,432591,0
+792,US,Treasury,TN,Treasury Note,Y,2020-05-08 07:41:46,,432591,0
+793,GS,Agency,FD,Agency,Y,2020-05-08 07:41:46,,432591,0
+794,CP,Corporate,ID,Industrial,Y,2020-05-08 07:41:46,,432591,0
+795,CP,Corporate,FB,Finance,Y,2020-05-08 07:41:46,,432591,0
+796,CP,Corporate,TL,Telephone,Y,2020-05-08 07:41:46,,432591,0
+797,CP,Corporate,EU,Electric/Gas,Y,2020-05-08 07:41:46,,432591,0
+798,MR,Mortgage pass-through,FH,FHLMC,Y,2020-05-08 07:41:46,,432591,0
+799,MR,Mortgage pass-through,FN,FNMA,Y,2020-05-08 07:41:46,,432591,0
+800,MR,Mortgage pass-through,GN,GNMA,Y,2020-05-08 07:41:46,,432591,0
+801,MR,Mortgage pass-through,OM,Other Mortgage,Y,2020-05-08 07:41:46,,432591,0
+802,AB,Asset Backed,AL,Auto Loan,Y,2020-05-08 07:41:46,,432591,0
+803,AB,Asset Backed,AC,Credit Card,Y,2020-05-08 07:41:46,,432591,0
+804,AB,Asset Backed,AO,Other Asset Backed,Y,2020-05-08 07:41:46,,432591,0
+805,MR,Mortgage pass-through,OA,Agency CMOs,Y,2020-05-08 07:41:46,,432591,0
+806,CM,CMO,OC,Whole Loan CMOs,Y,2020-05-08 07:41:46,,432591,0
+807,YK,Yankee,CN,Canadian,Y,2020-05-08 07:41:46,,432591,0
+808,CP,Corporate,OY,Other Yankee,Y,2020-05-08 07:41:46,,432591,0
+809,MP,Municipal,MP,Municipal,Y,2020-05-08 07:41:46,,432591,0
+810,FO,Foreign,GV,Sovereign,Y,2020-05-08 07:41:46,,432591,0
+811,FO,Foreign,CP,Corporate,Y,2020-05-08 07:41:46,,432591,0
+812,PS,Preferred Stock,PS,Preferred Stock,Y,2020-05-08 07:41:46,,432591,0
+813,PR,Private Placement,PV,Private Placement,Y,2020-05-08 07:41:46,,432591,0
+814,ST,Cash Equivalent,ST,Cash Equivalent,Y,2020-05-08 07:41:46,,432591,0
+815,CV,Convertible,CB,Convertible Bond,Y,2020-05-08 07:41:46,,432591,0
+816,GI,GICS/GACS,GI,GICS/GACS,Y,2020-05-08 07:41:46,,432591,0
+817,CP,Corporate,RE,Real Estate,Y,2019-03-04 08:27:44,,399318,0
+818,CP,Corporate,XX,Unclassified,Y,2020-05-08 07:41:46,,432591,0
+819,99,Commingled Fund,99,Commingled Fund,Y,2020-05-08 07:41:46,,432591,0
+820,97,Options,97,Options,Y,2020-05-08 07:41:46,,432591,0
+821,96,Futures,96,Futures,Y,2020-05-08 07:41:46,,432591,0
+822,95,Private Placement,95,Private Placement,Y,2020-05-08 07:41:46,,432591,0
+823,98,Rights/Warrants,98,Rights/Warrants,Y,2020-05-08 07:41:46,,432591,0
+824,B3,Bank loans,B3,Bank Loans,Y,2020-05-08 07:41:46,,432591,0
+825,EU,European bonds,GE,Government Issue,Y,2020-05-08 07:41:46,,432591,0
+826,SW,Derivatives Swaps,SD,Credit Default Swaps,Y,2020-05-08 07:41:46,,432591,0
+827,SW,Derivatives Swaps,SI,Interest Rate Swaps,Y,2020-05-08 07:41:46,,432591,0
+828,SW,Derivatives Swaps,SN,Total return swaps,Y,2020-05-08 07:41:46,,432591,0
+829,SW,Derivatives Swaps,SO,Total Return Commodity Swaps,Y,2020-05-08 07:41:46,,432591,0
+830,SW,Derivatives Swaps,SW,Swaps,Y,2020-05-08 07:41:46,,432591,0
+833,CP,Corporate,MS,Miscellaneous,Y,2020-05-08 07:41:46,,432591,0
+849,88,Telecommunication Services,EN,Entertainment,Y,2020-05-08 07:41:46,,432591,0
+850,88,Telecommunication Services,IM,Interactive Media Services,Y,2020-05-08 07:41:46,,432591,0
+831,VC,Venture Capital,VC,Venture Capital,Y,2020-05-08 07:41:46,,432591,0
+832,82,Industrials,B1,Business Services,Y,2020-05-08 07:41:46,,432591,0
+834,CP,Corporate,M1,Mortgages-Chattel,Y,2020-05-08 07:41:46,,432591,0
+835,86,Financials,CA,Capital Markets,Y,2020-05-08 07:41:46,,432591,0
+836,86,Financials,CF,Consumer Finance,Y,2020-05-08 07:41:46,,432591,0
+837,83,Consumer Discretionary,DV,Diversified Consumer Services,Y,2020-05-08 07:41:46,,432591,0
+838,85,Health Care,HC,Health Care Technology,Y,2020-05-08 07:41:46,,432591,0
+839,89,Utilities,IP,Indpndent Pwr & Renewable Elec Producer,Y,2020-05-08 07:41:46,,432591,0
+840,85,Health Care,LS,Life Sciences,Y,2020-05-08 07:41:46,,432591,0
+841,82,Industrials,PF,Professional Services,Y,2020-05-08 07:41:46,,432591,0
+842,86,Financials,RM,,Y,2020-05-08 07:41:46,,432591,0
+843,86,Financials,RT,,Y,2020-05-08 07:41:46,,432591,0
+844,87,Information Technology,SS,Semiconductors & Semiconductor Equipment,Y,2020-05-08 07:41:46,,432591,0
+845,86,Financials,TH,Thrifts & Mortgage Finance,Y,2020-05-08 07:41:46,,432591,0
+846,86,Financials,MR,Mortgage Re Investment Trusts (Reits),Y,2020-05-08 07:41:46,,432591,0
+847,RE,Real Estate,RD,,Y,2019-02-27 07:07:09,,398937,0
+848,RE,Real Estate,RI,Equity Re Investment Trusts (Reits),Y,2020-05-08 07:41:46,,432591,0
+852,RE,Real Estate,RE,Real Estate,Y,2020-05-08 07:41:46,,432591,0
+851,86,Financials,RD,Real Estate Management & Development,Y,2020-05-08 07:41:46,,432591,0
+853,SW,Derivatives Swaps,SC,SC,Y,2020-05-08 07:41:46,,432591,0

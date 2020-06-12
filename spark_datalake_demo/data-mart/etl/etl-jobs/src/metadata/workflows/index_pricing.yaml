@@ -1,0 +1,12 @@
+# Dependent on index workflow
+# Triggered on completion of index workflow 
+# Run daily, morning
+workflow:
+  type: ON_DEMAND
+  description: 'index pricing workflow, morning'
+  tasks:
+    index_valuation: 
+      job: fund.index_valuation
+    fund_index_rltn:
+      job: fund.index_return
+      dependencies: [ index_valuation ]

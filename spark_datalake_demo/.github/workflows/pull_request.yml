@@ -1,0 +1,272 @@
+name: pulumi-preview
+on:
+  pull_request:
+    branches:
+      - dev
+      - master
+      - qa
+jobs:
+  fetch-version:
+    #name: fetch tag version and store in artifact
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - id: version-bump
+        name: bump version and push tag
+        uses: anothrNick/github-tag-action@1.13.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+      
+      - name: write version to file
+        env: 
+          VERSION: ${{ steps.version-bump.outputs.tag }}
+        run: |
+          echo $VERSION > ./current_version.txt
+        
+      - name: store version in artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: version
+          path: ./current_version.txt
+
+
+  build-distribution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup python 3.6
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.6'
+
+      - name: install dependencies
+        working-directory: data-mart/etl/etl-jobs
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python setup.py install
+
+      - name: build egg
+        working-directory: data-mart/etl/etl-jobs/build
+        run: |
+          python build.py bdist_egg
+
+      - name: store-artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: distribution
+          path: data-mart/etl/etl-jobs/build/dist
+
+      #- name: debug github event
+      #  env:
+      #    GITHUB_EVENT_CONTEXT: ${{ toJson(github.event) }}
+      #  run: |
+      #    echo "$GITHUB_EVENT_CONTEXT"
+
+  pulumi-datalake:
+    needs: 
+      - fetch-version
+      - build-distribution
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: fetch version
+        uses: actions/download-artifact@v1
+        with:
+          name: version
+
+      - name: store version as step output
+        id: version
+        run: |
+          VERSION=$(cat version/current_version.txt)
+          echo "::set-output name=tag::${VERSION}"
+
+      - name: fetch distribution
+        uses: actions/download-artifact@v1
+        with:
+          name: distribution
+          path: data-mart/etl/etl-jobs/build/dist
+
+      - name: select aws role based off branch
+        id: aws-role
+        run: |
+          PULUMI_ROLE_ARN=$(jq -r '.${{ github.base_ref }}.role' ./aws.profiles)
+          PULUMI_REGION=$(jq -r '.${{ github.base_ref }}.region' ./aws.profiles)
+          echo "::set-output name=pulumi_role::${PULUMI_ROLE_ARN}"
+          echo "::set-output name=pulumi_region::${PULUMI_REGION}"
+
+      - name: assume role to aws account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ steps.aws-role.outputs.pulumi_region }}
+          role-to-assume: ${{ steps.aws-role.outputs.pulumi_role }}
+          role-duration-seconds: 900
+
+      - name: pulumi - datalake infra
+        uses: docker://pulumi/actions
+        with:
+          args: preview
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: pr
+          #COMMENT_ON_PR: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULUMI_ROOT: data-mart/etl/etl-jobs/build/build_pulumi
+          # prefix for scripts in s3
+          SCRIPTS_VERSION: ${{ steps.version.outputs.tag }}
+
+  pulumi-hc-source-jobs:
+    needs: 
+      - fetch-version
+      - pulumi-datalake
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: fetch version
+        uses: actions/download-artifact@v1
+        with:
+          name: version
+
+      - name: store version as step output
+        id: version
+        run: |
+          VERSION=$(cat version/current_version.txt)
+          echo "::set-output name=tag::${VERSION}"
+
+      - name: select aws role based off branch
+        id: aws-role
+        run: |
+          PULUMI_ROLE_ARN=$(jq -r '.${{ github.base_ref }}.role' ./aws.profiles)
+          PULUMI_REGION=$(jq -r '.${{ github.base_ref }}.region' ./aws.profiles)
+          echo "::set-output name=pulumi_role::${PULUMI_ROLE_ARN}"
+          echo "::set-output name=pulumi_region::${PULUMI_REGION}"
+
+      - name: assume role to aws account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ steps.aws-role.outputs.pulumi_region }}
+          role-to-assume: ${{ steps.aws-role.outputs.pulumi_role }}
+          role-duration-seconds: 900
+
+      - name: pulumi - hc source jobs
+        uses: docker://pulumi/actions
+        with:
+          args: preview
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: pr
+          #COMMENT_ON_PR: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULUMI_ROOT: source-jobs/database/hc
+          # prefix for scripts in s3
+          SCRIPTS_VERSION: ${{ steps.version.outputs.tag }}
+
+  pulumi-powerselect-source-jobs:
+    needs: 
+      - fetch-version
+      - pulumi-datalake
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: fetch version
+        uses: actions/download-artifact@v1
+        with:
+          name: version
+
+      - name: store version as step output
+        id: version
+        run: |
+          VERSION=$(cat version/current_version.txt)
+          echo "::set-output name=tag::${VERSION}"
+
+      - name: select aws role based off branch
+        id: aws-role
+        run: |
+          PULUMI_ROLE_ARN=$(jq -r '.${{ github.base_ref }}.role' ./aws.profiles)
+          PULUMI_REGION=$(jq -r '.${{ github.base_ref }}.region' ./aws.profiles)
+          echo "::set-output name=pulumi_role::${PULUMI_ROLE_ARN}"
+          echo "::set-output name=pulumi_region::${PULUMI_REGION}"
+
+      - name: assume role to aws account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ steps.aws-role.outputs.pulumi_region }}
+          role-to-assume: ${{ steps.aws-role.outputs.pulumi_role }}
+          role-duration-seconds: 900
+
+      - name: pulumi - powerselect source jobs
+        uses: docker://pulumi/actions
+        with:
+          args: preview
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: pr
+          #COMMENT_ON_PR: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULUMI_ROOT: source-jobs/database/powerselect
+          # prefix for scripts in s3
+          SCRIPTS_VERSION: ${{ steps.version.outputs.tag }}
+
+  pulumi-awd-source-jobs:
+    needs: 
+      - fetch-version
+      - pulumi-datalake
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: fetch version
+        uses: actions/download-artifact@v1
+        with:
+          name: version
+
+      - name: store version as step output
+        id: version
+        run: |
+          VERSION=$(cat version/current_version.txt)
+          echo "::set-output name=tag::${VERSION}"
+
+      - name: select aws role based off branch
+        id: aws-role
+        run: |
+          PULUMI_ROLE_ARN=$(jq -r '.${{ github.base_ref }}.role' ./aws.profiles)
+          PULUMI_REGION=$(jq -r '.${{ github.base_ref }}.region' ./aws.profiles)
+          echo "::set-output name=pulumi_role::${PULUMI_ROLE_ARN}"
+          echo "::set-output name=pulumi_region::${PULUMI_REGION}"
+
+      - name: assume role to aws account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ steps.aws-role.outputs.pulumi_region }}
+          role-to-assume: ${{ steps.aws-role.outputs.pulumi_role }}
+          role-duration-seconds: 900
+
+      - name: pulumi - awd source jobs
+        uses: docker://pulumi/actions
+        with:
+          args: preview
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          PULUMI_CI: pr
+          #COMMENT_ON_PR: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PULUMI_ROOT: source-jobs/database/awd
+          # prefix for scripts in s3
+          SCRIPTS_VERSION: ${{ steps.version.outputs.tag }}

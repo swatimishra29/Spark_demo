@@ -1,0 +1,16 @@
+# Dependent on source_index workflow
+# Triggered on completion of source jobs
+# Run daily, morning
+workflow:
+  type: ON_DEMAND
+  description: 'index workflow, morning'
+  tasks:
+    perf_run_type:
+      job: fund.perf_run_type
+    return_periods:
+      job: fund.return_periods
+    benchmark_index: 
+      job: fund.benchmark_index
+    fund_index_rltn:
+      job: fund.fund_index_rltn
+      dependencies: [ benchmark_index ]
