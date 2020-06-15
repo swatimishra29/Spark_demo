@@ -1,0 +1,11 @@
+trgt_perf_type_key,TRGT_PERF_TYPE,TRGT_PERF_TYPE_DESC,PERF_SORT_ORD,PERF_TYPE_FLG,OBJ_TYPE
+1,RFWM,Fund Return at Model Weight,3,D,FUND
+2,RBWM,Composite Index,2,D,INDEX
+3,RNAV,Fund,1,F,FUND
+4,RFWT,Fund Return at Target Weight,4,D,FUND
+5,RBWT,Benchmark Return at Target Weight,5,D,INDEX
+6,RFWA,Fund Return at Actual Weight,6,A,FUND
+7,RBWA,Benchmark Return at Actual Weight,7,A,INDEX
+8,RIDX,Associated Benchmarks,10,B,INDEX
+9,RFOG,Fund Original Glidepath,8,D,FUND
+10,RBOG,Benchmark Original Glidepath,9,D,INDEX

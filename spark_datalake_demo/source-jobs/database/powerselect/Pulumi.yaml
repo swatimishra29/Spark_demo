@@ -1,3 +1,0 @@
-name: source-job-powerselect
-runtime: python
-description: create glue jobs and connection to export data from dst powerselect (db2)

@@ -1,5 +1,0 @@
-- Name: oper_status
-  TableType: file
-  StorageDescriptor:
-    Location: oper_status\.csv
-    Format: csv

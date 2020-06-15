@@ -1,0 +1,11 @@
+TRGT_PERF_TYPE,TRGT_PERF_TYPE_DESC,PERF_SORT_ORD,PERF_TYPE_FLG,OBJ_TYPE
+"RFWM","Fund Return at Model Weight",3,"D","FUND"
+"RBWM","Composite Index",2,"D","INDEX"
+"RNAV","Fund",1,"F","FUND"
+"RFWT","Fund Return at Target Weight",4,"D","FUND"
+"RBWT","Benchmark Return at Target Weight",5,"D","INDEX"
+"RFWA","Fund Return at Actual Weight",6,"A","FUND"
+"RBWA","Benchmark Return at Actual Weight",7,"A","INDEX"
+"RIDX","Associated Benchmarks",10,"B","INDEX"
+"RFOG","Fund Original Glidepath",8,"D","FUND"
+"RBOG","Benchmark Original Glidepath",9,"D","INDEX"

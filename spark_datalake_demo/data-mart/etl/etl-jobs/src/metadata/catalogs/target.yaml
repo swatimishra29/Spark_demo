@@ -112,3 +112,12 @@
     SkipHeaderRows: 0
     SkipFooterRows: 0
     Format: csv
+- Name: sampletest
+  TableType: file
+  StorageDescriptor:
+    Location: sampletest.csv
+    Delimiter: ","
+    SkipHeaderRows: 0
+    SkipFooterRows: 0
+    Format: csv
+

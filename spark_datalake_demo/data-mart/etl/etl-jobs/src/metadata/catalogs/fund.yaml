@@ -1,7 +1,7 @@
 - Name: calendar
   TableType: file
   StorageDescriptor:
-    Location: calendar\.csv
+    Location: calendar.csv
     Format: csv
 - Name: yield_types
   TableType: file
