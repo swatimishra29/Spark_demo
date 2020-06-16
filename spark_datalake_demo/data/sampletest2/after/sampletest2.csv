@@ -1,0 +1,7 @@
+DLR_LVL_CNTL_KEY,DLR_LVL_CNTL_CD,DLR_LVL_CNTL_DESC,ROW_STRT_DTTM,ROW_STOP_DTTM,CURR_ROW_FLG,SRC_SYS_ID,ETL_LOAD_CYC_KEY
+1,0,Non Networking Broker Account,2009-11-14 14:46:14,,Y,,1
+2,1,Broker Controlled Ira/Margin Account,2009-11-14 14:46:14,,Y,,1
+3,2,Customer Name Brokerage Account,2009-11-14 14:46:14,,Y,,1
+4,3,Broker Controlled Brokerage Account,2009-11-14 14:46:14,,Y,,1
+5,4,Fund Controlled Brokerage Account,2009-11-14 14:46:14,,Y,,1
+6,9,Others,2009-11-14 14:46:14,,Y,,1

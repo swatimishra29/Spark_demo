@@ -6,14 +6,7 @@
     Delimiter: ","
     SkipHeaderRows: 0
     SkipFooterRows: 0
-- Name: target_weights
-  TableType: file
-  StorageDescriptor:
-    Location: target_fund_weights.csv
-    Format: csv
-    Delimiter: ","
-    SkipHeaderRows: 0
-    SkipFooterRows: 0
+
 - Name: ssb_hlds
   TableType: file
   StorageDescriptor:

@@ -1,0 +1,7 @@
+DLR_LVL_CNTL_CD,DLR_LVL_CNTL_DESC
+0,Non Networking Broker Account
+1,Broker Controlled Ira/Margin Account
+2,Customer Name Brokerage Account
+3,Broker Controlled Brokerage Account
+4,Fund Controlled Brokerage Account
+9,Others
